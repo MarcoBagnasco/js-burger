@@ -11,6 +11,11 @@ var ingredients = document.getElementsByClassName('ingredient-checkbox');
 // console.log(ingredients); //test
 var displayPrice = document.getElementById('price');
 // console.log(displayPrice); //test
+var coupon = document.getElementById('coupon');
+// console.log(coupon); //test
+
+// SETTINGS
+var coupons = ['123456ABCDEF', '7890GHIJK123', 'QWERTY987654'];
 
 // Calculate Price
 btn.addEventListener('click', function(){
@@ -34,6 +39,13 @@ btn.addEventListener('click', function(){
                 price += parseInt(ingredient.value);
             }
         }
+
+        var couponCode = coupon.value;
+        // console.log(couponCode); //test
+        if(coupons.includes(couponCode)){
+            price *= .8;
+        }
+
         // console.log(price); //test
         displayPrice.innerHTML = price.toFixed(2);
     }
