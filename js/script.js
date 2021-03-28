@@ -13,6 +13,9 @@ var displayPrice = document.getElementById('price');
 // console.log(displayPrice); //test
 var coupon = document.getElementById('coupon');
 // console.log(coupon); //test
+var addBtn = document.getElementsByClassName('ingredient-add');
+// console.log(addBtn); //test
+
 
 // SETTINGS
 var coupons = ['123456ABCDEF', '7890GHIJK123', 'QWERTY987654'];
@@ -50,3 +53,16 @@ btn.addEventListener('click', function(){
         displayPrice.innerHTML = price.toFixed(2);
     }
 })
+
+// Clickable add
+for(var i = 0; i < addBtn.length; i++){
+    var add = addBtn[i];
+
+    add.addEventListener('click', function(){
+        // console.log('click'); //test
+        // console.log(this); //test
+        // console.log(this.previousElementSibling); //test
+        var thisCheckbox = this.previousElementSibling;
+        thisCheckbox.checked = !thisCheckbox.checked;
+    });
+}
