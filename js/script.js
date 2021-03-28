@@ -4,53 +4,39 @@ CREATE YOUR BURGER
 
 // REFERENCE
 var btn = document.getElementById('button');
-// console.log(btn); //test
 var burgerName = document.getElementById('name');
-// console.log(burgerName); //test
 var ingredients = document.getElementsByClassName('ingredient-checkbox');
-// console.log(ingredients); //test
 var displayPrice = document.getElementById('price');
-// console.log(displayPrice); //test
 var coupon = document.getElementById('coupon');
-// console.log(coupon); //test
 var addBtn = document.getElementsByClassName('ingredient-add');
-// console.log(addBtn); //test
 
 
 // SETTINGS
 var coupons = ['123456ABCDEF', '7890GHIJK123', 'QWERTY987654'];
 
 // Calculate Price
-btn.addEventListener('click', function(){
-    // console.log('click'); //test
+btn.addEventListener('click', function(){ //waiting for click
     var name = burgerName.value.trim();
-    // console.log(name); //test
     // BurgerName required
     if(name.length === 0){
         alert('Insert Burger Name');
     } else{
-        // console.log('proceed with the calculation '); //test
         var price = 50;
 
-        for(var i = 0; i < ingredients.length; i++){
+        for(var i = 0; i < ingredients.length; i++){ //loop on ingredients
             var ingredient = ingredients[i];
-            // console.log(ingredient); //test
-            // console.log(ingredient.checked); //test
             if(ingredient.checked){
-                console.log(ingredient.value);
                 // Add Price
                 price += parseInt(ingredient.value);
             }
         }
 
-        var couponCode = coupon.value;
-        // console.log(couponCode); //test
-        if(coupons.includes(couponCode)){
+        var couponCode = coupon.value; 
+        if(coupons.includes(couponCode)){ //check for discount coupon
             price *= .8;
         }
 
-        // console.log(price); //test
-        displayPrice.innerHTML = price.toFixed(2);
+        displayPrice.innerHTML = price.toFixed(2); //final price
     }
 })
 
@@ -58,10 +44,7 @@ btn.addEventListener('click', function(){
 for(var i = 0; i < addBtn.length; i++){
     var add = addBtn[i];
 
-    add.addEventListener('click', function(){
-        // console.log('click'); //test
-        // console.log(this); //test
-        // console.log(this.previousElementSibling); //test
+    add.addEventListener('click', function(){ //waiting for click
         var thisCheckbox = this.previousElementSibling;
         thisCheckbox.checked = !thisCheckbox.checked;
     });
