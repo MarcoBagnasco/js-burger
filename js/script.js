@@ -9,6 +9,8 @@ var burgerName = document.getElementById('name');
 // console.log(burgerName); //test
 var ingredients = document.getElementsByClassName('ingredient-checkbox');
 // console.log(ingredients); //test
+var displayPrice = document.getElementById('price');
+// console.log(displayPrice); //test
 
 // Calculate Price
 btn.addEventListener('click', function(){
@@ -32,6 +34,7 @@ btn.addEventListener('click', function(){
                 price += parseInt(ingredient.value);
             }
         }
-        console.log(price);
+        // console.log(price); //test
+        displayPrice.innerHTML = price.toFixed(2);
     }
 })
